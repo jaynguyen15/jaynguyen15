@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Widget Product Assessment - Wireframes & User Journey</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .section {
+            background: white;
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+        
+        .user-journey {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .journey-step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8eeff 100%);
+            border-radius: 10px;
+            border: 2px solid #667eea;
+            position: relative;
+        }
+        
+        .journey-step:not(:last-child)::after {
+            content: '→';
+            position: absolute;
+            right: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .journey-step h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .wireframes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .wireframe {
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            background: #fafafa;
+        }
+        
+        .wireframe h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #667eea;
+            font-size: 1.4rem;
+        }
+        
+        .wireframe-content {
+            background: white;
+            min-height: 400px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            position: relative;
+        }
+        
+        .mock-element {
+            background: #e9ecef;
+            border: 1px dashed #adb5bd;
+            margin: 10px 0;
+            padding: 10px;
+            text-align: center;
+            border-radius: 3px;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+        
+        .mock-button {
+            background: #667eea;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 5px;
+            font-size: 0.85rem;
+        }
+        
+        .mock-card {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .mock-scoreboard {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #28a745;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        
+        .requirements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .requirement-category {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .requirement-category h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .requirement-category ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .requirement-category li {
+            background: white;
+            margin: 8px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 3px solid #28a745;
+            font-size: 0.9rem;
+        }
+        
+        .priority-high { border-left-color: #dc3545; }
+        .priority-medium { border-left-color: #ffc107; }
+        .priority-low { border-left-color: #28a745; }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .metric-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .metric-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .metric-card .number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .user-journey {
+                flex-direction: column;
+            }
+            
+            .journey-step:not(:last-child)::after {
+                content: '↓';
+                right: auto;
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .wireframes {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1> Sports Widget Product Assessment</h1>
+            <p>OptiSigns Junior Product Manager Case Study</p>
+        </div>
+
+        <!-- Wireframes Section -->
+        <div class="section">
+            <h2>Product Wireframes</h2>
+            <div class="wireframes">
+                <!-- Widget Selection Wireframe -->
+                <div class="wireframe">
+                    <h3>Widget Marketplace</h3>
+                    <div class="wireframe-content">
+                        <div class="mock-element">OptiSigns Dashboard Header</div>
+                        <div class="mock-element">Search & Filter Bar</div>
+                        
+                        <div class="mock-card">
+                            <strong>🏆 Sports Scores Widget</strong>
+                            <p>Live sports scores and updates</p>
+                            <div class="mock-button">Add to Display</div>
+                            <div class="mock-button">Preview</div>
+                        </div>
+                        
+                        <div class="mock-card">
+                            <strong>📰 News Widget</strong>
+                            <p>Show latest news headlines based on selected teams</p>
+                            <div class="mock-button">Add to Display</div>
+                        </div>
+                        
+                        <div class="mock-card">
+                            <strong>🌤️ Weather Widget</strong>
+                            <p>Local weather information</p>
+                            <div class="mock-button">Add to Display</div>
+                        </div>
+                    </div>
+                </div>
+
+        <!-- Live Scoreboard Wireframe -->
+        <div class="wireframe">
+        <h3>Live Scoreboard Display</h3>
+        <div class="wireframe-content">
+            <div class="mock-element pub-logo">
+                🏠 Display Pub Logo Here
+            </div>
+            <div class="mock-element">🏀 NBA LIVE SCORES</div>
+
+            <div class="mock-scoreboard">
+            <span>Lakers</span>
+            <span>108 - 112</span>
+            <span>Celtics</span>
+            <div class="status">(Final)</div>
+            </div>
+
+            <div class="mock-scoreboard">
+            <span>Warriors</span>
+            <span>95 - 88</span>
+            <span>Nets</span>
+            <div class="status">(Final)</div>
+            </div>
+
+            <div class="mock-scoreboard">
+            <span>Heat</span>
+            <span>89 - 92</span>
+            <span>Bulls</span>
+            <div class="status">Q3 – 12:34 remaining</div>
+            </div>
+
+            <div class="mock-element">Next Games: 7:00 PM EST</div>
+            <div class="mock-element">Powered by OptiSigns</div>
+            <div class="mock-element sponsor-logo">
+            💼 Display Sponsor Logo Here
+            </div>
+        </div>
+        </div>
+
+
+                <!-- Admin Dashboard Wireframe -->
+                <div class="wireframe">
+                    <h3>Admin Configuration Dashboard</h3>
+                    <div class="wireframe-content">
+                        <div class="mock-element">Sports Widget Settings</div>
+                        
+                        <div style="text-align: left;">
+                            <p><strong>Sport Selection:</strong></p>
+                            <div class="mock-button">🏀 NBA</div>
+                            <div class="mock-button">🏈 NFL</div>
+                            <div class="mock-button">⚽ Premier League</div>
+                            
+                            <p><strong>Current Matches:</strong></p>
+                            <div class="mock-element">Matches selector dropdown (show matches within current day)</div>
+                            
+                            <p><strong>Display Options:</strong></p>
+                            <div class="mock-element">☑️ Show team logos</div>
+                            <div class="mock-element">☐ Show my logo</div>
+                            <div class="mock-element">☑️ Auto-refresh every 20s</div>
+                            <div class="mock-element">☐ Sound notifications</div>
+                            
+                            <p><strong>Layout:</strong></p>
+                            <div class="mock-button">Horizontal</div>
+                            <div class="mock-button">Vertical</div>
+                        </div>
+                        
+                        <div style="margin-top: 20px;">
+                            <div class="mock-button" style="background: #28a745;">Save & Deploy</div>
+                            <div class="mock-button" style="background: #6c757d;">Preview</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
