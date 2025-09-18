@@ -1,8 +1,8 @@
-# 🏆 OptiSigns Sports Widget – Live Scoreboard
+# OptiSigns Sports Widget – Live Scoreboard
 
 This is an **OptiSigns product concept** designed to display **live sports scoreboards** on digital signage.  
 
-## 📌 Overview
+## Overview
 The widget enables pubs, sports venues, gyms, and other businesses to keep their customers engaged with **real-time sports scores** while also showcasing **branding and sponsorship opportunities**.  
 
 ## Features
